@@ -33,6 +33,9 @@ jobs:
       # `npm run build` typechecks first, so a type error fails the deploy
       - name: Build
         run: npm run build
+        env:
+          # GitHub Pages serves this repo from a sub-path
+          VITE_BASE: /Workshop-os/
 
       # Pages must already be enabled with Source = GitHub Actions
       # (Settings -> Pages). The token cannot turn it on for us.

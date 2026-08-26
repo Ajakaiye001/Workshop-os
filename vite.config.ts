@@ -23,9 +23,15 @@ function spaFallback(): Plugin {
   }
 }
 
-export default defineConfig(({ mode }) => ({
-  // served from https://<user>.github.io/Workshop-os/ in production, root in dev
-  base: mode === 'production' ? '/Workshop-os/' : '/',
+/**
+ * Where the app is served from differs per host: Vercel and local dev serve it
+ * at the root, GitHub Pages at /Workshop-os/. Hard-coding either one breaks the
+ * other, so the sub-path is passed in and the default is root.
+ */
+const base = process.env.VITE_BASE || '/'
+
+export default defineConfig(() => ({
+  base,
   plugins: [react(), spaFallback()],
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
   server: { port: 4260, strictPort: true },
