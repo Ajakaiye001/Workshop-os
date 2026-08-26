@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon, cx, type IconName } from '../../components/ui'
 import { Mark, Wordmark } from '../../components/layout/Wordmark'
+import { asset } from '../../lib/asset'
 
 /* ============================================================
    The marketing surface runs its own visual world: graphite
@@ -227,7 +228,7 @@ function Hero() {
         <Reveal delay={120}>
           <figure className="relative">
             <Photo
-              src="/img/hero-mechanic.jpg"
+              src={asset("img/hero-mechanic.jpg")}
               alt="A technician leaning into an engine bay with a work light, checking a wiring connector"
               ratio="4/5"
               priority
@@ -331,7 +332,7 @@ function OneSystem() {
         <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-14">
           <Reveal>
             <Photo
-              src="/img/workshop-floor.jpg"
+              src={asset("img/workshop-floor.jpg")}
               alt="A bright multi-bay workshop with cars on ramps and technicians working at several bays"
               ratio="16/10"
               className="rounded-2xl border border-line"
@@ -571,7 +572,7 @@ function Showcase() {
         title="Know what a part costs, and when it lands, before you promise anything."
         body="Every repair checks your shelf first. When stock is short, WorkshopOS puts your suppliers side by side on price and delivery, then turns your choice into an order that stays linked to the job."
         points={['Live stock, reserved against the car that needs it', 'Supplier price and delivery compared in one view', 'Goods in updates the shelf and unblocks the job']}
-        photo={{ src: '/img/parts-wall.jpg', alt: 'A workshop wall hung with exhaust sections and catalytic converters', ratio: '3/4' }}
+        photo={{ src: asset('img/parts-wall.jpg'), alt: 'A workshop wall hung with exhaust sections and catalytic converters', ratio: '3/4' }}
         visual={<PartsVisual />}
       />
       <Feature
@@ -580,7 +581,7 @@ function Showcase() {
         title="A screen for hands that are already busy."
         body="Technicians get their jobs, the customer's own words, the approved work and the parts. No pricing, no reports, no settings. Big targets, high contrast, and it works on a tablet mounted in the bay."
         points={['One tap to start work or mark it ready', 'Faults become repairs without leaving the bay', 'Parts requests reach the parts desk instantly']}
-        photo={{ src: '/img/tech-under-lift.jpg', alt: 'A technician under a raised car, checking the underside with a tool in hand', ratio: '3/4' }}
+        photo={{ src: asset('img/tech-under-lift.jpg'), alt: 'A technician under a raised car, checking the underside with a tool in hand', ratio: '3/4' }}
         visual={<TechVisual />}
       />
       <Feature
@@ -588,7 +589,7 @@ function Showcase() {
         title="They can see the same job you do."
         body="A link by text shows where the car is, what you found in plain English, what it costs including VAT, and a button to approve. Approval lands on the job the second they press it."
         points={['Live progress from check-in to collection', 'Approve or decline itemised work', 'Card payment before they arrive to collect']}
-        photo={{ src: '/img/engine-bay.jpg', alt: 'A mechanic bent over an open engine bay in a service workshop', ratio: '3/4' }}
+        photo={{ src: asset('img/engine-bay.jpg'), alt: 'A mechanic bent over an open engine bay in a service workshop', ratio: '3/4' }}
         visual={<PortalVisual />}
       />
     </section>
@@ -767,7 +768,7 @@ function Proof() {
       <Reveal>
         <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
           <Photo
-            src="/img/tyre-hands.jpg"
+            src={asset("img/tyre-hands.jpg")}
             alt="Gloved hands checking a tyre on a car raised in a workshop"
             ratio="1/1"
             className="rounded-2xl border border-line"

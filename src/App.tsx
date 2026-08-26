@@ -64,7 +64,7 @@ const Loading = () => (
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ShopProvider>
         <AuthProvider>
         <ConfirmProvider>

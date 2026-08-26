@@ -4,6 +4,7 @@ import { useAuth } from '../../auth/AuthProvider'
 import { DEMO_ACCOUNTS, DEMO_PASSWORD, FAILURE_MESSAGE } from '../../auth/accounts'
 import { Button, Callout, Checkbox, Field, Icon, Input, cx } from '../../components/ui'
 import { Wordmark } from '../../components/layout/Wordmark'
+import { asset } from '../../lib/asset'
 
 export default function SignIn() {
   const { status, account, signIn } = useAuth()
@@ -183,7 +184,7 @@ export default function SignIn() {
       {/* ---------- side panel ---------- */}
       <div className="relative hidden flex-1 lg:block">
         <img
-          src="/img/workshop-floor.jpg"
+          src={asset("img/workshop-floor.jpg")}
           alt="A bright multi-bay workshop with cars on ramps and technicians at work"
           className="absolute inset-0 h-full w-full object-cover"
         />

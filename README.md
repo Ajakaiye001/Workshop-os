@@ -4,6 +4,9 @@ An interactive, high-fidelity prototype of a workshop management platform for
 independent automotive garages. Four connected experiences, one codebase, one
 in-memory data model.
 
+**Live demo: https://ajakaiye001.github.io/Workshop-os/**
+Sign in with any role from the picker on the sign-in screen — password `workshop2026`.
+
 ```bash
 npm install
 npm run dev      # http://localhost:4260
@@ -131,3 +134,8 @@ Everything else in this repository is prototype work. WorkshopOS is not a real
 company, Shannonside Motorworks is not a real workshop, and the customers,
 vehicles, testimonials and figures throughout are invented to demonstrate the
 product idea.
+
+## Licence
+
+[MIT](LICENSE). See Credits above for the photography and typeface licences,
+which are separate.
