@@ -116,3 +116,18 @@ Refreshing the page resets the dataset.
   this repo.
 - Design decisions and tokens: [DESIGN.md](DESIGN.md). Product thinking:
   [PRODUCT.md](PRODUCT.md).
+
+## Credits and licence
+
+Photographs are from [Unsplash](https://unsplash.com) under the Unsplash
+Licence, by Sten Rademaker, Jimmy Nilsson Masth, Mehmet Talha Onuk, engin
+akyurt and Kate Ibragimova. They are credited in the site footer as well. **The
+people pictured have no connection to WorkshopOS.**
+
+Typefaces are Google Fonts: Inter, Archivo and JetBrains Mono, all under the
+SIL Open Font Licence.
+
+Everything else in this repository is prototype work. WorkshopOS is not a real
+company, Shannonside Motorworks is not a real workshop, and the customers,
+vehicles, testimonials and figures throughout are invented to demonstrate the
+product idea.
