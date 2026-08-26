@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   WorkshopOS design tokens
+   Neutrals tinted toward hue 256 (cool graphite).
+   Single accent: hi-vis lime (hue 118) — the colour of workshop
+   safety wear. Used for live state, focus, selection, brand.
+   ============================================================ */
+
+:root {
+  --paper: oklch(0.978 0.004 256);
+  --surface: oklch(0.997 0.002 256);
+  --raised: oklch(1 0 0);
+  --sunken: oklch(0.958 0.006 256);
+  --panel: oklch(0.968 0.006 258);
+  --line: oklch(0.906 0.008 258);
+  --line-strong: oklch(0.845 0.011 258);
+
+  --ink: oklch(0.245 0.019 260);
+  --ink-2: oklch(0.445 0.016 260);
+  --ink-3: oklch(0.585 0.014 260);
+  --ink-4: oklch(0.705 0.012 260);
+  --on-ink: oklch(0.985 0.003 256);
+
+  --hv: oklch(0.865 0.196 118);
+  --hv-dim: oklch(0.955 0.062 118);
+  --hv-ink: oklch(0.32 0.075 122);
+  --hv-40: oklch(0.865 0.196 118 / 0.4);
+  --hv-30: oklch(0.865 0.196 118 / 0.3);
+  --hv-12: oklch(0.865 0.196 118 / 0.12);
+
+  --ok: oklch(0.545 0.135 158);
+  --ok-bg: oklch(0.945 0.048 158);
+  --warn: oklch(0.605 0.135 62);
+  --warn-bg: oklch(0.955 0.052 72);
+  --bad: oklch(0.545 0.196 24);
+  --bad-bg: oklch(0.955 0.038 24);
+  --info: oklch(0.545 0.135 250);
+  --info-bg: oklch(0.955 0.032 250);
+  --purple: oklch(0.525 0.165 302);
+  --purple-bg: oklch(0.955 0.035 302);
+
+  --btn-bg: oklch(0.245 0.019 260);
+  --btn-fg: oklch(0.985 0.003 256);
+  --btn-bg-hover: oklch(0.315 0.021 260);
+
+  --shadow-1: oklch(0.245 0.019 260 / 0.10);
+  --shadow-2: oklch(0.245 0.019 260 / 0.13);
+  --grid-line: oklch(0.245 0.019 260 / 0.045);
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --paper: oklch(0.178 0.013 260);
+  --surface: oklch(0.208 0.014 260);
+  --raised: oklch(0.238 0.015 260);
+  --sunken: oklch(0.148 0.012 260);
+  --panel: oklch(0.192 0.014 260);
+  --line: oklch(0.305 0.015 260);
+  --line-strong: oklch(0.395 0.017 260);
+
+  --ink: oklch(0.965 0.005 256);
+  --ink-2: oklch(0.775 0.013 258);
+  --ink-3: oklch(0.635 0.015 258);
+  --ink-4: oklch(0.505 0.015 258);
+  --on-ink: oklch(0.165 0.013 260);
+
+  --hv: oklch(0.865 0.196 118);
+  --hv-dim: oklch(0.285 0.07 120);
+  --hv-ink: oklch(0.20 0.055 122);
+  --hv-40: oklch(0.865 0.196 118 / 0.4);
+  --hv-30: oklch(0.865 0.196 118 / 0.28);
+  --hv-12: oklch(0.865 0.196 118 / 0.1);
+
+  --ok: oklch(0.755 0.145 158);
+  --ok-bg: oklch(0.305 0.062 158);
+  --warn: oklch(0.805 0.135 74);
+  --warn-bg: oklch(0.315 0.062 66);
+  --bad: oklch(0.715 0.155 24);
+  --bad-bg: oklch(0.315 0.078 24);
+  --info: oklch(0.755 0.105 250);
+  --info-bg: oklch(0.305 0.055 250);
+  --purple: oklch(0.755 0.115 302);
+  --purple-bg: oklch(0.305 0.062 302);
+
+  --btn-bg: oklch(0.865 0.196 118);
+  --btn-fg: oklch(0.20 0.055 122);
+  --btn-bg-hover: oklch(0.905 0.185 118);
+
+  --shadow-1: oklch(0.08 0.01 260 / 0.42);
+  --shadow-2: oklch(0.08 0.01 260 / 0.55);
+  --grid-line: oklch(1 0 0 / 0.045);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * { border-color: var(--line); }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv05' 1, 'ss03' 1;
+  }
+  h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.018em; margin: 0; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  ::selection { background: var(--hv); color: var(--hv-ink); }
+  :focus-visible {
+    outline: 2px solid var(--hv);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  [data-theme='light'] :focus-visible { outline-color: oklch(0.62 0.15 120); }
+  .num { font-variant-numeric: tabular-nums; }
+  /*
+    An implicit grid track is `auto`, which sizes to max-content. Below the
+    breakpoint where a layout declares grid-template-columns there is no
+    template, so one wide table inside pushes the whole page sideways instead
+    of scrolling inside its own overflow-x-auto wrapper. Implicit tracks have
+    to be shrinkable.
+  */
+  .grid { grid-auto-columns: minmax(0, 1fr); }
+  input[type='range'] { accent-color: var(--hv); }
+  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 99px;
+    border: 3px solid var(--paper);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
+}
+
+@layer components {
+  /* Field: the technical grid backdrop used behind diagnostics + hero visuals */
+  .field-grid {
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .hairline-t { box-shadow: inset 0 1px 0 var(--line); }
+  .hairline-b { box-shadow: inset 0 -1px 0 var(--line); }
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: var(--sunken);
+    border-radius: 5px;
+  }
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+    animation: shimmer 1.6s infinite;
+  }
+}
+
+/* Marketing surface: Archivo carries everything, width axis is the voice */
+.mkt {
+  font-family: Archivo, Inter, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.mkt-display {
+  font-family: Archivo, sans-serif;
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+.mkt-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
