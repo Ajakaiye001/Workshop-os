@@ -34,10 +34,10 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Pages must already be enabled with Source = GitHub Actions
+      # (Settings -> Pages). The token cannot turn it on for us.
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
