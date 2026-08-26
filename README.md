@@ -4,7 +4,6 @@ An interactive, high-fidelity prototype of a workshop management platform for
 independent automotive garages. Four connected experiences, one codebase, one
 in-memory data model.
 
-**Live demo: https://ajakaiye001.github.io/Workshop-os/**
 Sign in with any role from the picker on the sign-in screen — password `workshop2026`.
 
 ```bash
@@ -119,6 +118,30 @@ Refreshing the page resets the dataset.
   this repo.
 - Design decisions and tokens: [DESIGN.md](DESIGN.md). Product thinking:
   [PRODUCT.md](PRODUCT.md).
+
+## Deployment
+
+Deployed on Vercel, which rebuilds on every push to `main`.
+
+| Setting | Value |
+|---|---|
+| Framework preset | Vite |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Install command | `npm install` |
+
+`vercel.json` rewrites unknown paths to `index.html`, so client-side routes such
+as `/app/jobs` survive a hard refresh. Real files under `/assets` and `/img` are
+excluded from the rewrite and served directly.
+
+Two things that bite on a first deploy:
+
+- **Preview deployments are protected by Vercel Authentication by default.**
+  They answer with a login redirect instead of the app, which looks like a blank
+  page. Turn it off under Settings → Deployment Protection, or use the
+  production URL.
+- **The app is served from the domain root.** Nothing sets a Vite `base`, and it
+  should stay that way unless you move to a host that serves from a sub-path.
 
 ## Credits and licence
 
